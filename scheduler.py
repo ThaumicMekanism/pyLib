@@ -60,7 +60,6 @@ def scheduledTask(function, delay, priority=1):
                     raise ValueError("All delays must be positive values!")
                 return d
             else:
-                print("Exiting scheduler...")
                 return False
         elif type(delay) == type(0):
             return delay
@@ -73,6 +72,10 @@ def scheduledTask(function, delay, priority=1):
             if d is not False:
                 print("Waiting for " + str(d) + " second(s)...\n")
                 s.enter(d, priority, routine)
+            else:
+                print("Exiting scheduler...")
+        else:
+            print("Exiting scheduler...")
     
     
     s = sched.scheduler(time.time, time.sleep)
