@@ -1,3 +1,6 @@
+import sys
+sys.path.insert(0, "ThaumTechLib")
+from timeout import timeout
 import scheduler
 
 pname = "file.exe"
@@ -13,12 +16,15 @@ def fn():
 
 #scheduler.scheduledTask(fn, 5)
 
+
 def ag():
 	print("Testing...")
 
 	#Use the & to run the process in the background. Works for linux and windows does not care
 	#You could also start your process however you want to as well.
-	scheduler.startProcess("ag.py &")
+
+	scheduler.startProcess("ag.py")
+	#The ag.py file has imported a timeout so there are no inf loops!
 
 	print("Finished testing...")
 	return True
